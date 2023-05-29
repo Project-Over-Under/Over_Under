@@ -41,6 +41,23 @@ def get_weeks(games,w=4):
     weeks = [w for i in games]
     return weeks
 
+def get_week_list(games):
+    '''
+    takes in a list of urls (games) and outputs a list of weeks as int dtype
+    '''
+    week_list = []
+    for game in games:
+        url = f'https://www.pro-football-reference.com/{game}'
+        response = requests.get(url)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        span = soup.find_all('div', class_='section_wrapper')[0].find_all('span')[0]
+        span = str(span)
+        week_re = r'[0-9]{1,2}'
+        week = re.findall(week_re,span)
+        week = week[0]
+        week_list.append(week)
+    return week_list
+
 def get_home_teams(games):
     '''
     takes in a list of urls (games) and outputs a list of home_teams as string dtype
@@ -127,7 +144,8 @@ def create_wx_df(y='2022',w='4',s=100):
     home_teams = get_home_teams(games)
     sleep(s)
     seasons = get_seasons(games)
-    weeks = get_weeks(games)
+    weeks = get_week_list(games)
+    sleep(s)
     temps = get_temps(games)
     sleep(s)
     winds = get_winds(games)
@@ -142,3 +160,15 @@ def create_wx_df(y='2022',w='4',s=100):
         "weather_humidity":hums 
     })
     return df
+
+
+def create_wx_df_mult(year,weeks,s=100):
+    '''
+    takes in a year (string), a list of weeks (strings), and a number_of_seconds (int) to sleep/delay between scrapes
+    then outputs a single YEARLY DataFrame which includes 6 columns: Season-Week-Home_Team-Temperature-Wind-Humidity
+    '''
+    dfs = []
+    for i in weeks:
+        df = create_wx_df(y=year,w=i,s=s)
+        dfs.append(df)
+    return pd.concat(dfs,ignore_index=True)
