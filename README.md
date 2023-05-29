@@ -1,1 +1,6 @@
-# Over_Under
+#  Project_Over_Under
+#### Welcome to this initial exploration of NFL Contest Data from the 1979-80 season until the current 2022-23 season!  The primary purpose of this project is to accurately predict whether the total scores of both teams will be less than or greater than a pre-established total. The project data-set was curated specifically for this project and is based upon data courtesy of https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data.  Additional data was acquired from https://www.pro-football-reference.com.  Individual-game data for each NFL regular-season and plyoff game from 1979 until present was selected to highlight potential meta-game impacts on human-performance factors.  Each game was then labeled as "Over" or "Under", based upon whether the total points scored by both teams exceeded a pre-determined betting total.
+#### The goals of this initial exploration are as follows:
+- PRIMARY: Generate actionable predictions regarding whether or not a game total score will exceed a pre-determined total.
+- SECONDARY: Draw reasonable inferences regarding the characteristics of those games which featured total scores determined to be "Over", and those that do not.
+- SECONDARY: Identify those features which retain the greatest importance for determining the potential for a particular NFL game to exceed a pre-established total game score.
