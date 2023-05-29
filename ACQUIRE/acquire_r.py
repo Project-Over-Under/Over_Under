@@ -33,6 +33,15 @@ def get_seasons(games):
     seasons = [int(re.findall(date_re,i)[0]) for i in games]
     return seasons
 
+def get_seasons_playoffs(games):
+    '''
+    takes in a list of urls (games) and outputs a list of the season_year for each game
+    '''
+    date_re = r'[0-9]{4}'
+    seasons = [(int(re.findall(date_re,i)[0]))-1 for i in games]
+    return seasons
+
+
 def get_weeks(games,w=4):
     '''
     takes in a list of urls (games) and a week_number (as a int), then outputs a list of week_numbers
@@ -77,63 +86,74 @@ def get_temps(games):
     takes in a list of urls (games) and outputs a list of temperature_values for each game
     '''
     temps = []
-    for game in games:
-        url = f'https://www.pro-football-reference.com/{game}'
-        response = requests.get(url)
-        wx_digits = r'\d{1,2}'
-        soup = BeautifulSoup(response.content, 'html.parser')
-        div_grid = soup.find_all('div', class_='content_grid')[0]
-        div = div_grid.find_all('div')[0]
-        div_wrap = div.find_all('div')[0]
-        soup_wrap4 = div_wrap.contents[4]
-        soup4 = BeautifulSoup(soup_wrap4, 'html.parser')
-        wx = soup4.find_all('td','center')[-3]
-        content = str(wx.contents[0])
-        temp = re.findall(wx_digits,content)[0]
-        temps.append(temp)
-    return temps
-
+    try:
+        for game in games:
+            url = f'https://www.pro-football-reference.com/{game}'
+            response = requests.get(url)
+            wx_digits = r'\d{1,2}'
+            soup = BeautifulSoup(response.content, 'html.parser')
+            div_grid = soup.find_all('div', class_='content_grid')[0]
+            div = div_grid.find_all('div')[0]
+            div_wrap = div.find_all('div')[0]
+            soup_wrap4 = div_wrap.contents[4]
+            soup4 = BeautifulSoup(soup_wrap4, 'html.parser')
+            wx = soup4.find_all('td','center')[-3]
+            content = str(wx.contents[0])
+            temp = re.findall(wx_digits,content)[0]
+            temps.append(temp)
+        return temps
+    except:
+        pass
 def get_winds(games):
     '''
     takes in a list of urls (games) and outputs a list of wind_values for each game
     '''
     winds = []
-    for game in games:
-        url = f'https://www.pro-football-reference.com/{game}'
-        response = requests.get(url)
-        wx_digits = r'\d{1,2}'
-        soup = BeautifulSoup(response.content, 'html.parser')
-        div_grid = soup.find_all('div', class_='content_grid')[0]
-        div = div_grid.find_all('div')[0]
-        div_wrap = div.find_all('div')[0]
-        soup_wrap4 = div_wrap.contents[4]
-        soup4 = BeautifulSoup(soup_wrap4, 'html.parser')
-        wx = soup4.find_all('td','center')[-3]
-        content = str(wx.contents[0])
-        wind = re.findall(wx_digits,content)[2]
-        winds.append(wind)
-    return winds
+    try:
+        for game in games:
+            url = f'https://www.pro-football-reference.com/{game}'
+            response = requests.get(url)
+            wx_digits = r'\d{1,2}'
+            soup = BeautifulSoup(response.content, 'html.parser')
+            div_grid = soup.find_all('div', class_='content_grid')[0]
+            div = div_grid.find_all('div')[0]
+            div_wrap = div.find_all('div')[0]
+            soup_wrap4 = div_wrap.contents[4]
+            soup4 = BeautifulSoup(soup_wrap4, 'html.parser')
+            wx = soup4.find_all('td','center')[-3]
+            content = str(wx.contents[0])
+            wind = re.findall(wx_digits,content)[2]
+            winds.append(wind)
+        return winds
+    except:
+        pass
+
 
 def get_hums(games):
     '''
     takes in a list of urls (games) and outputs a list of humidity_values for each game
     '''
     hums = []
-    for game in games:
-        url = f'https://www.pro-football-reference.com/{game}'
-        response = requests.get(url)
-        wx_digits = r'\d{1,2}'
-        soup = BeautifulSoup(response.content, 'html.parser')
-        div_grid = soup.find_all('div', class_='content_grid')[0]
-        div = div_grid.find_all('div')[0]
-        div_wrap = div.find_all('div')[0]
-        soup_wrap4 = div_wrap.contents[4]
-        soup4 = BeautifulSoup(soup_wrap4, 'html.parser')
-        wx = soup4.find_all('td','center')[-3]
-        content = str(wx.contents[0])
-        hum = re.findall(wx_digits,content)[1]
-        hums.append(hum)
-    return hums
+    try:
+        for game in games:
+            url = f'https://www.pro-football-reference.com/{game}'
+            response = requests.get(url)
+            wx_digits = r'\d{1,2}'
+            soup = BeautifulSoup(response.content, 'html.parser')
+            div_grid = soup.find_all('div', class_='content_grid')[0]
+            div = div_grid.find_all('div')[0]
+            div_wrap = div.find_all('div')[0]
+            soup_wrap4 = div_wrap.contents[4]
+            soup4 = BeautifulSoup(soup_wrap4, 'html.parser')
+            wx = soup4.find_all('td','center')[-3]
+            content = str(wx.contents[0])
+            hum = re.findall(wx_digits,content)[1]
+            hums.append(hum)
+        return hums
+    except:
+        pass
+
+
 
 def create_wx_df(y='2022',w='4',s=100):
     '''
@@ -151,6 +171,7 @@ def create_wx_df(y='2022',w='4',s=100):
     winds = get_winds(games)
     sleep(s)
     hums = get_hums(games)
+    sleep(s)
     df = pd.DataFrame({
         'schedule_season':seasons,
         'schedule_week':weeks,
@@ -161,6 +182,31 @@ def create_wx_df(y='2022',w='4',s=100):
     })
     return df
 
+
+
+def create_wx_df_playoffs(y='2022',w='4',s=100):
+    '''
+    takes in a year_number (string), week_number (string), and a number_of_seconds (int), then
+    outputs a WEEKLY DataFrame which includes 6 columns: Season-Week-Home_Team-Temperature-Wind-Humidity
+    '''
+    games = get_games(y=y,w=w)
+    home_teams = get_home_teams(games)
+    sleep(s)
+    seasons = get_seasons_playoffs(games)
+    temps = get_temps(games)
+    sleep(s)
+    winds = get_winds(games)
+    sleep(s)
+    hums = get_hums(games)
+    sleep(s)
+    df = pd.DataFrame({
+        'schedule_season':seasons,
+        'team_home':home_teams,
+        'weather_temperature':temps,
+        'weather_wind_mph':winds,
+        "weather_humidity":hums 
+    })
+    return df
 
 def create_wx_df_mult(year,weeks,s=100):
     '''
