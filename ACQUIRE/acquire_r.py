@@ -76,8 +76,9 @@ def get_home_teams(games):
         url = f'https://www.pro-football-reference.com/{game}'
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
-        href = soup.find_all('div', class_='scorebox')[0].find_all('a')[8]
-        team = href.text
+        href = soup.find_all('div', class_='scorebox')[0].find_all('strong')
+        href = [tag for tag in href if tag.find('a')]
+        team = href[1].find('a').contents[0]
         home_teams.append(team)
     return home_teams
 
