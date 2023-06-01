@@ -111,10 +111,10 @@ def add_upper_outlier_columns(df, k=1.5):
 def split_data(df):
     train_val,test = train_test_split(df,
                                      random_state=2013,
-                                     train_size=0.82)
+                                     train_size=0.82, stratify=df['is_under'])
     train, validate = train_test_split(train_val,
                                       random_state=2013,
-                                      train_size=0.73)
+                                      train_size=0.73,stratify=df['is_under'])
     return train, validate, test
 
 
