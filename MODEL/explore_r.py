@@ -108,13 +108,13 @@ def add_upper_outlier_columns(df, k=1.5):
        
 
 
-def split_data(df):
+def split_data(df,target):
     train_val,test = train_test_split(df,
-                                     random_state=2013,
-                                     train_size=0.82)
+                                     random_state=19,
+                                     train_size=0.82,stratify=df[target])
     train, validate = train_test_split(train_val,
-                                      random_state=2013,
-                                      train_size=0.73)
+                                      random_state=19,
+                                      train_size=0.73,stratify=train_val[target])
     return train, validate, test
 
 
@@ -142,7 +142,7 @@ def train_validate_test(df, target):
     # split train_validate off into train (70% of 80% = 56%) and validate (30% of 80% = 24%)
     #train, validate = train_test_split(train_validate, test_size=.3, random_state=123)
     
-    train, validate, test = split_data(df)
+    train, validate, test = split_data(df,target)
 
         
     # split train into X (dataframe, drop target) & y (series, keep target only)
