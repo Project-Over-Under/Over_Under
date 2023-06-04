@@ -257,8 +257,8 @@ def exp_1():
     train_indoor = train[train.is_outdoor == 0]
     sns.catplot(data=train_outdoor, x='is_under', y='temp',hue='is_under',order=[0,1],ec='black',alpha=0.1)
     plt.xticks(ticks=[0,1],labels=['NO','YES'])
-    # plt.xlabel('playoffs')
-    # plt.ylabel('opp_pts')
+    plt.title('Comparison of Temp and Is Under')
+
     plt.legend(labels=['NO','YES'],loc='lower left', bbox_to_anchor=(.9, .8))
     plt.show()
 
@@ -267,13 +267,11 @@ def exp_2():
     train_indoor = train[train.is_outdoor == 0]
     sns.catplot(data=train_outdoor, x='is_under', y='wind',hue='is_under',order=[0,1],ec='black',alpha=0.05)
     plt.xticks(ticks=[0,1],labels=['NO','YES'])
-    # plt.xlabel('playoffs')
-    # plt.ylabel('opp_pts')
+    plt.title('Comparison of Wind and Is Under')
     plt.legend(labels=['NO','YES'],loc='lower left', bbox_to_anchor=(.9, .8))
     plt.show()
 
 def stat_1():
-    # type "\alpha", then hit the TAB key
     α = 0.05
     wind_under_values = train[train.is_under == 1].wind
     wind_over_values = train[train.is_under == 0].wind
@@ -288,17 +286,51 @@ def heatmap():
     sns.heatmap(train_heat.corr().abs(),
             cmap='vlag',
             annot=True,
-            #mask=np.triu(train.corr(),1)
+           
             )
     plt.show()
 
 def exp_3():
     count_data = df.groupby(['abnormal_start', 'is_under']).size().unstack()
-    # Plot the stacked bar chart
     plt.figure(figsize=(8, 6))
     count_data.plot(kind='bar', stacked=True)
     plt.xlabel('Abnormal Start')
     plt.ylabel('Count')
     plt.title('Comparison of Abnormal Start and Is Under')
     plt.legend(title='Is Under')
+    plt.show()
+
+def stat_2():
+    train.abnormal_start.value_counts(normalize=True)
+    train[train['is_under'] == 1].abnormal_start.value_counts(normalize=True)
+    train[train['is_under'] == 0].abnormal_start.value_counts(normalize=True)
+    train[train['abnormal_start'] == 1].is_under.value_counts(normalize=True)
+    train[train['abnormal_start'] == 0].is_under.value_counts(normalize=True)
+    α = 0.05
+    abnormal_under_values = train[train.abnormal_start == 1].is_under
+    normal_under_values = train[train.abnormal_start == 0].is_under
+    t, p = stats.ttest_ind(abnormal_under_values,normal_under_values,equal_var=True)
+    print(t,p,α)
+    print(f'p = {p:f}')
+def stat_3():
+    train.is_turf.value_counts(normalize=True)
+    train[train['is_under'] == 1].is_turf.value_counts(normalize=True)
+    train[train['is_under'] == 0].is_turf.value_counts(normalize=True)
+    train[train['is_turf'] == 1].is_under.value_counts(normalize=True)
+    train[train['is_turf'] == 0].is_under.value_counts(normalize=True)
+    α = 0.05
+    turf_under_values = train[train.is_turf == 1].is_under
+    grass_under_values = train[train.is_turf == 0].is_under
+    t, p = stats.ttest_ind(turf_under_values,grass_under_values,equal_var=True)
+    print(t,p,α)
+    print(f'p = {p:f}')
+
+def exp_4():
+    # Count the occurrences of is_turf and is_under
+    count_data = df.groupby(['is_turf', 'is_under']).size().reset_index(name='count')
+    plt.figure(figsize=(8, 6))
+    sns.barplot(x='is_turf', y='count', hue='is_under', data=count_data)
+    plt.xlabel('Is Turf')
+    plt.ylabel('Count')
+    plt.title('Comparison of Is Turf and Is Under')
     plt.show()
