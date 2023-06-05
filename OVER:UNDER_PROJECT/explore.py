@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
+import explore as ex
 #from env import user, pwd, host
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -143,8 +144,7 @@ def train_validate_test(df, target):
     # split train_validate off into train (70% of 80% = 56%) and validate (30% of 80% = 24%)
     #train, validate = train_test_split(train_validate, test_size=.3, random_state=123)
     
-    train, validate, test = split_data(df, 'is_under')
-
+    train, validate, test = ex.split_data(df, 'is_under')
         
     # split train into X (dataframe, drop target) & y (series, keep target only)
     X_train = train.drop(columns=[target])
@@ -250,7 +250,15 @@ def min_max_scale(X_train, X_validate, X_test, numeric_cols):
 '''XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'''
 
 df = pd.read_csv('prepped_data.csv')
-train, validate, test = split_data(df, 'is_under')
+def split_data1(df):
+    train_val,test = train_test_split(df,
+                                     random_state=2013,
+                                     train_size=0.82)
+    train, validate = train_test_split(train_val,
+                                      random_state=2013,
+                                      train_size=0.73)
+    return train, validate, test
+train, validate, test = split_data1(df)
 
 def exp_1():
     train_outdoor = train[train.is_outdoor == 1]
@@ -306,18 +314,23 @@ def stat_2():
     train[train['is_under'] == 0].abnormal_start.value_counts(normalize=True)
     train[train['abnormal_start'] == 1].is_under.value_counts(normalize=True)
     train[train['abnormal_start'] == 0].is_under.value_counts(normalize=True)
+    observed = pd.crosstab(train.abnormal_start, train.is_under)
     α = 0.05
     abnormal_under_values = train[train.abnormal_start == 1].is_under
     normal_under_values = train[train.abnormal_start == 0].is_under
     t, p = stats.ttest_ind(abnormal_under_values,normal_under_values,equal_var=True)
     print(t,p,α)
     print(f'p = {p:f}')
+
 def stat_3():
     train.is_turf.value_counts(normalize=True)
     train[train['is_under'] == 1].is_turf.value_counts(normalize=True)
     train[train['is_under'] == 0].is_turf.value_counts(normalize=True)
     train[train['is_turf'] == 1].is_under.value_counts(normalize=True)
     train[train['is_turf'] == 0].is_under.value_counts(normalize=True)
+    observed = pd.crosstab(train.is_turf, train.is_under)
+
+
     α = 0.05
     turf_under_values = train[train.is_turf == 1].is_under
     grass_under_values = train[train.is_turf == 0].is_under
@@ -334,3 +347,5 @@ def exp_4():
     plt.ylabel('Count')
     plt.title('Comparison of Is Turf and Is Under')
     plt.show()
+
+#update

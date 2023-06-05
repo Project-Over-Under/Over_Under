@@ -4,7 +4,6 @@ import numpy as np
 import os
 import wrangle as wr
 import explore as ex
-import model as mo
 # plotting
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -75,3 +74,4 @@ def SVC_model():
     print(f'Accuracy-Validate {round(svm.score(X_validate_scaled,y_validate),4)}')
     print(classification_report(y_train,svm_preds))
     print(classification_report(y_validate,svm.predict(X_validate_scaled)))
+#update
