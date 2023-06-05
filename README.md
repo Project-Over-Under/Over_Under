@@ -67,7 +67,7 @@
 - This implies that not only is it possible to achieve a marginal "predictive capability", but we may also retain a realistic level of "interpretability" or explainability with our results if we were to use Tree-Based classifiers.
 - Along with DecisionTree and Random Forest models, LogRegression pointed towards the features "wind" (wind speed) and "ou" (over/under betting line) as the Top 2 features.
 - While our model is currently able to outperform baseline PRECISION for the positive class by over 2%, these results do not yet allow for an informed sports wager to be made with POSITIVE EXPECTED VALUE.  A PRECISION value of greater than 55% is needed for this to be the case.
-- In the future, it is recommended to further explore applications of ML clustering on this dataset to support an increase in the predictive power of classification models.  Additionally, introducing new features into the datset may improve model performance.  Finally, performance gains may be achieved by utilizing a subset of dataset features.
+- In the future, it is recommended to further explore applications of ML clustering on this dataset to support an increase in the predictive power of classification models.  Additionally, introducing new features into the dataset may improve model performance.  Finally, performance gains may be achieved by utilizing a subset of dataset features.
 
 #### Applications:
 
