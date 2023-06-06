@@ -21,6 +21,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier
+from sklearn.naive_bayes import GaussianNB
 #CATboost imports
 from catboost import CatBoostClassifier
 from sklearn.svm import SVC
@@ -75,3 +76,37 @@ def SVC_model():
     print(classification_report(y_train,svm_preds))
     print(classification_report(y_validate,svm.predict(X_validate_scaled)))
 #update
+
+def rf():
+   # create the Random Forest model 
+   # df = df.drop(columns=['date', 'day_of_week', 'start_time','home_score',
+         #'home_wins', 'away_score', 'away_wins','stadium','total_scores'])
+   X_train, y_train, X_validate, y_validate, X_test, y_test = ex.train_validate_test(df,'is_under')
+
+   rf1 = RandomForestClassifier(n_estimators=201,max_depth=5)
+   # fit the model to the TRAIN dataset1
+   rf1.fit(X_train, y_train)
+   # use the model by calling for the predictions made via the TRAIN dataset
+   rf1_preds = rf1.predict(X_train)
+   pd.crosstab(rf1_preds,y_train) # a confusion matrix with ACTUALS as columns and PREDICTIONS as rows
+   print(f'Accuracy-Train {round(rf1.score(X_train,y_train),4)}')
+   print(f'Accuracy-Validate {round(rf1.score(X_validate,y_validate),4)}')
+   print(classification_report(y_train,rf1_preds))
+   print(classification_report(y_validate,rf1.predict(X_validate)))
+
+def nb():
+   #df = df.drop(columns=['date', 'day_of_week', 'start_time','home_score',
+       # 'home_wins', 'away_score', 'away_wins','stadium','total_scores'])
+   X_train, y_train, X_validate, y_validate, X_test, y_test = ex.train_validate_test(df,'is_under')
+
+
+   nbc = GaussianNB()
+   # fit the model to the TRAIN dataset1
+   nbc.fit(X_train, y_train)
+   # use the model by calling for the predictions made via the TRAIN dataset
+   nbc_preds = nbc.predict(X_train)
+   pd.crosstab(nbc_preds,y_train) # a confusion matrix with ACTUALS as columns and PREDICTIONS as rows
+   print(f'Accuracy-Train {round(nbc.score(X_train,y_train),4)}')
+   print(f'Accuracy-Validate {round(nbc.score(X_validate,y_validate),4)}')
+   print(classification_report(y_train,nbc_preds))
+   print(classification_report(y_validate,nbc.predict(X_validate)))
