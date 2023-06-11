@@ -20,7 +20,7 @@
 </details>
 
 <!-- USAGE EXAMPLES -->
-## Plan
+## Background and Planning
 
 #### The goals of this initial exploration are as follows:
 - PRIMARY: Generate actionable predictions regarding whether or not a game total score will exceed a pre-determined total.
