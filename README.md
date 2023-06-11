@@ -6,7 +6,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open>
-  <summary style="font-size: large">Table of Contents</summary>
+  <summary style="font-size: 30px">Table of Contents</summary>
   <ol>
     <li>
       <a href="#Background and Planning">Background and Planning</a>
