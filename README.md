@@ -5,8 +5,8 @@
 #### Welcome to this initial exploration of NFL Game Data from the 1979 season until the most current 2022 season!  The primary purpose of this project is to accurately predict whether the total scores of both teams will be less than or greater than a pre-established betting total. The project dataset was curated specifically for this project from https://www.pro-football-reference.com and was inspired by a dataset courtesy of https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data.  Individual game data for each NFL regular-season and plyoff game from 1979 until present was selected to highlight potential meta-game impacts on human performance factors.  Each game was then labeled as "Over" or "Under", based upon whether the total points scored by both teams exceeded a pre-determined betting total.
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
+<details open>
+  <summary style:="font-size: large">Table of Contents</summary>
   <ol>
     <li>
       <a href="#Background and Planning">Background and Planning</a>
