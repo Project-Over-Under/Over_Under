@@ -6,7 +6,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#plan">Background and Planning</a>
+      <a href="#Plan">Background and Planning</a>
     </li>
     <li>
       <a href="#explore">Exploration</a>
@@ -18,6 +18,9 @@
     <li><a href="#reproduce">Reproduce Our Work</a></li>
   </ol>
 </details>
+
+<!-- USAGE EXAMPLES -->
+## Plan
 
 #### The goals of this initial exploration are as follows:
 - PRIMARY: Generate actionable predictions regarding whether or not a game total score will exceed a pre-determined total.
