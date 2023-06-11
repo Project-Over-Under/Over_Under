@@ -12,7 +12,7 @@
       <a href="#Background and Planning">Background and Planning</a>
     </li>
     <li>
-      <a href="#explore">Exploration</a>
+      <a href="#Exploration">Exploration</a>
     </li>
     <li><a href="#dict">Data Dictionary</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -22,7 +22,7 @@
   </ol>
 </details>
 
-<!-- USAGE EXAMPLES -->
+<!-- HEADER EXAMPLES -->
 ## Background and Planning
 
 #### The goals of this initial exploration are as follows:
@@ -48,6 +48,8 @@
 - Deliver: Please refer to this doc as well as the Over:Under.ipynb file for the finished version of the presentation, in addition to each of the underlying exploratory notebooks.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- HEADER EXAMPLES -->
+## Exploration
 #### Initial hypotheses and questions:
 * What meaningful features can be leveraged to create a model that predicts whether or not an NFL game will feature teams which score above or below a pre-established betting line?  
 * Can features which reflect the meta-game conditions under which the two teams in an NFL game are subject yield similar or even better results than the traditional statistics upon which most players/teams are evaluated? 
@@ -58,6 +60,7 @@
 * Can these chosen features transcend the changing nature of the game in order to allow for an "apples-to-apples" categorization of teams from multiple eras of NFL play? 
 * If all of the above are realistic and possible, can a well-informed sports wager be placed utilizing the outputs of said modeling?
 * Can sports-wagering industry stakeholders utilize this model as part of a larger software suite to ascertain the anticipated level of "interest" in a particular wager when the Over-Under Line is set at various levels?  Could this information lead to better decisions made by odds makers, and therefore, greater ROI potentials?
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Data Dictionary: 
 
