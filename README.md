@@ -1,5 +1,31 @@
 #  Project_Over_Under
-#### Welcome to this initial exploration of NFL Game Data from the 1979 season until the most recent 2022 season!  The primary purpose of this project is to accurately predict whether the total scores of both teams will be less than or greater than a pre-established betting total. The project dataset was curated specifically for this project from https://www.pro-football-reference.com and was inspired by a dataset courtesy of https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data.  Individual game data for each NFL regular-season and plyoff game from 1979 until present was selected to highlight potential meta-game impacts on human performance factors.  Each game was then labeled as "Over" or "Under", based upon whether the total points scored by both teams exceeded a pre-determined betting total.
+#### Welcome to this initial exploration of NFL Game Data from the 1979 season until the most current 2022 season!  The primary purpose of this project is to accurately predict whether the total scores of both teams will be less than or greater than a pre-established betting total. The project dataset was curated specifically for this project from https://www.pro-football-reference.com and was inspired by a dataset courtesy of https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data.  Individual game data for each NFL regular-season and plyoff game from 1979 until present was selected to highlight potential meta-game impacts on human performance factors.  Each game was then labeled as "Over" or "Under", based upon whether the total points scored by both teams exceeded a pre-determined betting total.
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
 #### The goals of this initial exploration are as follows:
 - PRIMARY: Generate actionable predictions regarding whether or not a game total score will exceed a pre-determined total.
@@ -21,7 +47,7 @@
 - Prepare: Kept outliers after investigating their nature, missingness was a non-issue, as there were ZERO entries containing NULL values for predictors.  SKLearn StandardScaler used for scaling purposes.  Split into machine learning subsets (Train/Validate/Test).
 - Explore: Univariate and multi-variate analysis, correlation matrix, 2D visualization, 2-sample T-testing for significant differences in means, chi$^2$ testing for discrete distributions.
 - Model: Established a baseline "PRECISION" of 50.7% using the most frequent target occurance of "UNDER".  Then with an "out-of-the-box" LogisticClassifier with default hyperparameters, established a new PRECISION floor of 52.6% on unseen VALIDATION Data.  Testing was completed using this algorithm to achieve a PRECISION
-- Deliver: Please refer to this doc as well as the Final_XXXXXXXXX.ipynb file for the finished version of the presentation, in addition to each of the underlying exploratory notebooks.
+- Deliver: Please refer to this doc as well as the Over:Under.ipynb file for the finished version of the presentation, in addition to each of the underlying exploratory notebooks.
 
 #### Initial hypotheses and questions:
 * What meaningful features can be leveraged to create a model that predicts whether or not an NFL game will feature teams which score above or below a pre-established betting line?  
@@ -71,21 +97,22 @@
 
 #### Applications:
 
-- For the purposes of placing "Over/Under" wagers for NFL games, the first step is to decide upon a wagering strategy.  Do we look to maximaize the ACCURACY of bets regardless of whether we bet "Over" or "Under", or is it wiser to identify (PRECISION) those games which are predicted to be "Under", and thus limit ourselves to betting the "Under" on these games?
+- For the purposes of placing "Over/Under" wagers for NFL games, the first step is to decide upon a wagering strategy.  Do we look to maximize the ACCURACY of bets regardless of whether we bet "Over" or "Under", or is it wiser to identify (PRECISION) those games which are predicted to be "Under", and thus limit ourselves to betting the "Under" on these games?
 - For oddsmakers who are responsible for setting the Over/Under betting lines which will garner the most interest (and thus profits) from the sports-wagering public, this model would compliment existing software tools by providing insights into the corrsponding probabilities of "Over" and "Under" for each possible value of the "Over/Under" line.  That number which is closest to a 50/50 split would indicate the number which will generate the greatest Return on Investment (ROI).
 - Further evaluation is necessary to compare the probability that the total score in an NFL game is over or under a particular betting line to the payoff odds offered by the sportsbook.  Much information is publicly available to make this evaluation so that a wager can be made with a Positive Expected Value.  It is outside the scope of this project to elaborate further on the topic of sports wagering theory and practice.  As a starting point, please visit the "Wizard of Odds", Michael Shackleford's website at https://wizardofodds.com/games/sports-betting.
 
 #### Instructions for those who wish to reproduce this work or simply follow along:
 You Will Need (ALL files must be placed in THE SAME FOLDER!):
-- 1. final_XXXXXXXXX.ipynb file from this git repo
-- 2. XXXXXXX.py file from this git repo
-- 3. XXXXXXXX.py file from this git repo
-- 4. XXXXXXXXX.csv located at : XXXXXXwww.somesite.comXXXXXXXX
+- 1. Over:Under.ipynb file from the OVER:UNDER_PROJECT folder in this git repo
+- 2. wrangle.py file from the OVER:UNDER_PROJECT folder in this git repo
+- 3. explore.py file from the OVER:UNDER_PROJECT folder in this git repo
+- 4. model.py file from the OVER:UNDER_PROJECT folder in this git repo
+- 5. XXXXXXXXX.csv located at : XXXXXXwww.somesite.comXXXXXXXX
 
 Ensure:
-- CATBoost library required in the working environment, however, the code in the Final_XXXXXXX can be removed or commented out in order to run the notebook.
-- XGBoost library required in the working environment, however, the code in the Final_XXXXXXX can be removed or commented out in order to run the notebook.
+- CATBoost library required in the working environment, however, the code in the Over:Under.ipynb file can be removed or commented out in order to run the notebook.
+- XGBoost library required in the working environment, however, the code in the Over:Under.ipynb file can be removed or commented out in order to run the notebook.
 - All files are in the SAME FOLDER
-- XXXXXXXXX.py and XXXXXX.py each have the .py extension in the file name
+- wrangle.py, explore.py and model.py each have the .py extension in the file name
 
 Any further assistance required, please email me at myemail@somecompany.com.
