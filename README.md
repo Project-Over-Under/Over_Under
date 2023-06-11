@@ -1,3 +1,6 @@
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a name="readme-top"></a>
+
 #  Project_Over_Under
 #### Welcome to this initial exploration of NFL Game Data from the 1979 season until the most current 2022 season!  The primary purpose of this project is to accurately predict whether the total scores of both teams will be less than or greater than a pre-established betting total. The project dataset was curated specifically for this project from https://www.pro-football-reference.com and was inspired by a dataset courtesy of https://www.kaggle.com/datasets/tobycrabtree/nfl-scores-and-betting-data.  Individual game data for each NFL regular-season and plyoff game from 1979 until present was selected to highlight potential meta-game impacts on human performance factors.  Each game was then labeled as "Over" or "Under", based upon whether the total points scored by both teams exceeded a pre-determined betting total.
 
@@ -6,7 +9,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#Plan">Background and Planning</a>
+      <a href="#Background and Planning">Background and Planning</a>
     </li>
     <li>
       <a href="#explore">Exploration</a>
@@ -43,6 +46,7 @@
 - Explore: Univariate and multi-variate analysis, correlation matrix, 2D visualization, 2-sample T-testing for significant differences in means, chi$^2$ testing for discrete distributions.
 - Model: Established a baseline "PRECISION" of 50.7% using the most frequent target occurance of "UNDER".  Then with an "out-of-the-box" LogisticClassifier with default hyperparameters, established a new PRECISION floor of 52.6% on unseen VALIDATION Data.  Testing was completed using this algorithm to achieve a PRECISION
 - Deliver: Please refer to this doc as well as the Over:Under.ipynb file for the finished version of the presentation, in addition to each of the underlying exploratory notebooks.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Initial hypotheses and questions:
 * What meaningful features can be leveraged to create a model that predicts whether or not an NFL game will feature teams which score above or below a pre-established betting line?  
