@@ -9,7 +9,7 @@
   <summary style="font-size: 30px">Table of Contents</summary>
   <ol>
     <li>
-      <a href="#Background and Planning">Background and Planning</a>
+      <a href="#background">Background and Planning</a>
     </li>
     <li>
       <a href="#Exploration">Exploration</a>
