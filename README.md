@@ -14,9 +14,8 @@
     <li>
       <a href="#Exploration">Exploration</a>
     </li>
-    <li><a href="#dict">Data Dictionary</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#findings">Findings, Takewaways, Recommendations</a></li>
+    <li><a href="#Data Dictionary">Data Dictionary</a></li>
+    <li><a href="#Findings, Takeaways and Recommendations">Findings, Takewaways, Recommendations</a></li>
     <li><a href="#application">Application</a></li>
     <li><a href="#reproduce">Reproduce Our Work</a></li>
   </ol>
@@ -62,7 +61,8 @@
 * Can sports-wagering industry stakeholders utilize this model as part of a larger software suite to ascertain the anticipated level of "interest" in a particular wager when the Over-Under Line is set at various levels?  Could this information lead to better decisions made by odds makers, and therefore, greater ROI potentials?
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-#### Data Dictionary: 
+<!-- HEADER EXAMPLES -->
+## Data Dictionary 
 
 |Feature |  Data type | Definition |
 |---|---|---|
@@ -86,8 +86,9 @@
 | playoff_implications: | bool | Does the game have playoff implications |
 | is_turf: | bool  | Does the field use grass or turf-variant |
 | is_outdoor: | bool  | Is the Game played outdoors or inside a dome |
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-#### Findings, Takeaways and Recommendations:
+## Findings, Takeaways and Recommendations
 
 - Modeling was optimized for PRECISION for the Positive Class ("is_under").  The nature of sports wagering allows False Negatives to be inconsequential, however, False Positives are punished significantly via loss of wagering capital.
 - Baseline PRECISION for the most-common, Positive class is 50.7%.  We calculate this rate by predicting all instances to be an instance of "is_under", and then calculate the percentage of correct predictions.
@@ -96,6 +97,7 @@
 - Along with DecisionTree and Random Forest models, LogRegression pointed towards the features "wind" (wind speed) and "ou" (over/under betting line) as the Top 2 features.
 - While our model is currently able to outperform baseline PRECISION for the positive class by over 2%, these results do not yet allow for an informed sports wager to be made with POSITIVE EXPECTED VALUE.  A PRECISION value of greater than 55% is needed for this to be the case.
 - In the future, it is recommended to further explore applications of ML clustering on this dataset to support an increase in the predictive power of classification models.  Additionally, introducing new features into the dataset may improve model performance.  Finally, performance gains may be achieved by utilizing a subset of dataset features.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Applications:
 
