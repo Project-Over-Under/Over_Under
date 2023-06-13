@@ -15,9 +15,9 @@
       <a href="#Exploration">Exploration</a>
     </li>
     <li>
-      <a href="#Data Dictionary">Data Dictionary</a>
+      <a href="#Data">Data</a>
     </li>
-    <li><a href="#Findings, Takeaways and Recommendations">Findings, Takewaways, Recommendations</a></li>
+    <li><a href="#Findings, Takeaways and Recommendations">Findings, Takewaways and Recommendations</a></li>
     <li><a href="#application">Application</a></li>
     <li><a href="#reproduce">Reproduce Our Work</a></li>
   </ol>
@@ -64,7 +64,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- HEADER EXAMPLES -->
-## Data Dictionary 
+## Data 
 
 |Feature |  Data type | Definition |
 |---|---|---|
