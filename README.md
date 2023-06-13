@@ -14,7 +14,9 @@
     <li>
       <a href="#Exploration">Exploration</a>
     </li>
-    <li><a href="#Data Dictionary">Data Dictionary</a></li>
+    <li>
+      <a href="#Data Dictionary">Data Dictionary</a>
+    </li>
     <li><a href="#Findings, Takeaways and Recommendations">Findings, Takewaways, Recommendations</a></li>
     <li><a href="#application">Application</a></li>
     <li><a href="#reproduce">Reproduce Our Work</a></li>
