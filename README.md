@@ -12,10 +12,10 @@
       <a href="#background">Background and Planning</a>
     </li>
     <li>
-      <a href="#Exploration">Exploration</a>
+      <a href="#exploration">Exploration</a>
     </li>
     <li>
-      <a href="#Data">Data</a>
+      <a href="#data">Data Dictionary</a>
     </li>
     <li><a href="#Findings, Takeaways and Recommendations">Findings, Takewaways and Recommendations</a></li>
     <li><a href="#application">Application</a></li>
