@@ -17,14 +17,14 @@
     <li>
       <a href="#data">Data Dictionary</a>
     </li>
-    <li><a href="#Findings, Takeaways and Recommendations">Findings, Takewaways and Recommendations</a></li>
+    <li><a href="#findings">Findings, Takewaways, and Recommendations</a></li>
     <li><a href="#application">Application</a></li>
     <li><a href="#reproduce">Reproduce Our Work</a></li>
   </ol>
 </details>
 
 <!-- HEADER EXAMPLES -->
-## Background and Planning
+## Background
 
 #### The goals of this initial exploration are as follows:
 - PRIMARY: Generate actionable predictions regarding whether or not a game total score will exceed a pre-determined total.
