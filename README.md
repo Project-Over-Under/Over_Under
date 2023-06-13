@@ -90,7 +90,8 @@
 | is_outdoor: | bool  | Is the Game played outdoors or inside a dome |
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Findings, Takeaways and Recommendations
+<!-- HEADER EXAMPLES -->
+## Findings
 
 - Modeling was optimized for PRECISION for the Positive Class ("is_under").  The nature of sports wagering allows False Negatives to be inconsequential, however, False Positives are punished significantly via loss of wagering capital.
 - Baseline PRECISION for the most-common, Positive class is 50.7%.  We calculate this rate by predicting all instances to be an instance of "is_under", and then calculate the percentage of correct predictions.
@@ -101,13 +102,16 @@
 - In the future, it is recommended to further explore applications of ML clustering on this dataset to support an increase in the predictive power of classification models.  Additionally, introducing new features into the dataset may improve model performance.  Finally, performance gains may be achieved by utilizing a subset of dataset features.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-#### Applications:
+<!-- HEADER EXAMPLES -->
+## Applications:
 
 - For the purposes of placing "Over/Under" wagers for NFL games, the first step is to decide upon a wagering strategy.  Do we look to maximize the ACCURACY of bets regardless of whether we bet "Over" or "Under", or is it wiser to identify (PRECISION) those games which are predicted to be "Under", and thus limit ourselves to betting the "Under" on these games?
 - For oddsmakers who are responsible for setting the Over/Under betting lines which will garner the most interest (and thus profits) from the sports-wagering public, this model would compliment existing software tools by providing insights into the corrsponding probabilities of "Over" and "Under" for each possible value of the "Over/Under" line.  That number which is closest to a 50/50 split would indicate the number which will generate the greatest Return on Investment (ROI).
 - Further evaluation is necessary to compare the probability that the total score in an NFL game is over or under a particular betting line to the payoff odds offered by the sportsbook.  Much information is publicly available to make this evaluation so that a wager can be made with a Positive Expected Value.  It is outside the scope of this project to elaborate further on the topic of sports wagering theory and practice.  As a starting point, please visit the "Wizard of Odds", Michael Shackleford's website at https://wizardofodds.com/games/sports-betting.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-#### Instructions for those who wish to reproduce this work or simply follow along:
+<!-- HEADER EXAMPLES -->
+## Reproduce:
 You Will Need (ALL files must be placed in THE SAME FOLDER!):
 - 1. Over:Under.ipynb file from the OVER:UNDER_PROJECT folder in this git repo
 - 2. wrangle.py file from the OVER:UNDER_PROJECT folder in this git repo
@@ -122,3 +126,4 @@ Ensure:
 - wrangle.py, explore.py and model.py each have the .py extension in the file name
 
 Any further assistance required, please email me at myemail@somecompany.com.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
