@@ -103,7 +103,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- HEADER EXAMPLES -->
-## Applications:
+## Application
 
 - For the purposes of placing "Over/Under" wagers for NFL games, the first step is to decide upon a wagering strategy.  Do we look to maximize the ACCURACY of bets regardless of whether we bet "Over" or "Under", or is it wiser to identify (PRECISION) those games which are predicted to be "Under", and thus limit ourselves to betting the "Under" on these games?
 - For oddsmakers who are responsible for setting the Over/Under betting lines which will garner the most interest (and thus profits) from the sports-wagering public, this model would compliment existing software tools by providing insights into the corrsponding probabilities of "Over" and "Under" for each possible value of the "Over/Under" line.  That number which is closest to a 50/50 split would indicate the number which will generate the greatest Return on Investment (ROI).
@@ -111,7 +111,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- HEADER EXAMPLES -->
-## Reproduce:
+## Reproduce
 You Will Need (ALL files must be placed in THE SAME FOLDER!):
 - 1. Over:Under.ipynb file from the OVER:UNDER_PROJECT folder in this git repo
 - 2. wrangle.py file from the OVER:UNDER_PROJECT folder in this git repo
