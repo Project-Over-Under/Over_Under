@@ -117,7 +117,7 @@ You Will Need (ALL files must be placed in THE SAME FOLDER!):
 - 2. wrangle.py file from the OVER:UNDER_PROJECT folder in this git repo
 - 3. explore.py file from the OVER:UNDER_PROJECT folder in this git repo
 - 4. model.py file from the OVER:UNDER_PROJECT folder in this git repo
-- 5. XXXXXXXXX.csv located at : XXXXXXwww.somesite.comXXXXXXXX
+- 5. nfl_data.csv located at : XXXXXXwww.somesite.comXXXXXXXX
 
 Ensure:
 - CATBoost library required in the working environment, however, the code in the Over:Under.ipynb file can be removed or commented out in order to run the notebook.
